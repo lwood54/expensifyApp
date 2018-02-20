@@ -45,9 +45,6 @@ const sortByDate = () => ({
 });
 
 //  6. SORT_BY_AMOUNT
-//  NOTE: In his solution, he puts the sortBy: 'amount' in the filtersReducer.
-//  This way seems more consistant and modular, but maybe he did it that way
-//  for a reason, so be aware that this may need to be changed.
 const sortByAmount = () => ({
   type: 'SORT_BY_DATE',
   sortBy: 'amount'
