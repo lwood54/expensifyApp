@@ -10,13 +10,13 @@ module.exports = {
   module: {
     rules: [
       {
-        loader: 'babel-loader',
+        loader: 'babel-loader', // because there is only 1 loader
         test: /\.js$/,
         exclude: /node_modules/
       },
       {
         test: /\.s?css$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: ['style-loader', 'css-loader', 'sass-loader'] // because there is more than one loader
       }
     ]
   },

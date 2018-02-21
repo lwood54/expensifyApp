@@ -24,7 +24,7 @@ store.dispatch(setTextFilter('water'));
 // getVisibleExpenses --> print visibles ones to screen
 
 setTimeout(() => {
-  store.dispatch(setTextFilter('rent'));
+  store.dispatch(setTextFilter('bill'));
 }, 3000);
 
 const state = store.getState();
