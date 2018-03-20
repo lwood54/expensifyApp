@@ -9,12 +9,12 @@ test('should setup remove expense action object', () => {
 });
 
 test('should setup edit expense action object', () => {
-  const action = editExpense('3499', { note: 'New note value' });
+  const action = editExpense('3499', { note: 'New note value.' });
   expect(action).toEqual({
     type: 'EDIT_EXPENSE',
     id: '3499',
     updates: {
-      note: 'New note value'
+      note: 'New note value.'
     }
   });
 });
