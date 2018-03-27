@@ -10,6 +10,7 @@ import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
+import './firebase/firebase';
 
 // NOTE: For running tests: yarn test -- --watch (this tells it to watch the test instead of
 //      watching yarn.)
