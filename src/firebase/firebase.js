@@ -13,22 +13,38 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
-database.ref().set({
-  name: 'Logan Wood',
-  age: 36,
-  isMarried: true,
-  location: {
-    city: 'Fort Worth',
-    country: 'United States'
-  }
-});
+database
+  .ref()
+  .set({
+    name: 'Logan Wood',
+    age: 36,
+    isMarried: true,
+    location: {
+      city: 'Fort Worth',
+      country: 'United States'
+    }
+  })
+  .then(() => {
+    console.log('Data is saved');
+  })
+  .catch(error => {
+    console.log('This failed.', error);
+  });
 
 // database.ref().set('This is my data.');
 
-database.ref('age').set(37);
-database.ref('location/city').set('Dallas');
+// database.ref('age').set(37);
+// database.ref('location/city').set('Dallas');
 
-database.ref('attributes').set({
-  height: '6ft 8in',
-  weight: '280lbs'
-});
+database
+  .ref('attributes')
+  .set({
+    height: '6ft 8in',
+    weight: '280lbs'
+  })
+  .then(() => {
+    console.log('Attributes have been saved.');
+  })
+  .catch(e => {
+    console.log('Current error: ', e);
+  });
