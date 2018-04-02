@@ -13,46 +13,49 @@ firebase.initializeApp(config);
 
 const database = firebase.database();
 
-// child_removed
-database.ref('expenses').on('child_removed', (snapshot) => {
-  console.log(snapshot.key, snapshot.val());
-});
+export { firebase, database as default };
 
-// child_changed
-database.ref('expenses').on('child_changed', (snapshot) => {
-  console.log(snapshot.key, snapshot.val());
-});
+//// REFERENCE HOW TO DO BASICS ... ////
+// // child_removed
+// database.ref('expenses').on('child_removed', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// });
 
-// child_added
-database.ref('expenses').on('child_added', (snapshot) => {
-  console.log(snapshot.key, snapshot.val());
-});
+// // child_changed
+// database.ref('expenses').on('child_changed', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// });
 
-// CHALLENGE: Subsribe to changes and print out new array of data when change occurs
-// SUBSCRIBING TO ARRAY BASED STRUCTURE
-// const onExpenseChange = database.ref('expenses').on(
-//   'value',
-//   (snapshot) => {
-//     const expenses = [];
+// // child_added
+// database.ref('expenses').on('child_added', (snapshot) => {
+//   console.log(snapshot.key, snapshot.val());
+// });
 
-//     snapshot.forEach((childSnapshot) => {
-//       expenses.push({
-//         id: childSnapshot.key,
-//         ...childSnapshot.val()
-//       });
-//     });
-//     console.log('expenses: ', expenses);
-//   }, (e) => {
-//     console.log('Error with data fetching: ', e);
-//   }
-// );
+// // CHALLENGE: Subsribe to changes and print out new array of data when change occurs
+// // SUBSCRIBING TO ARRAY BASED STRUCTURE
+// // const onExpenseChange = database.ref('expenses').on(
+// //   'value',
+// //   (snapshot) => {
+// //     const expenses = [];
 
-database.ref('expenses').push({
-  title: 'food',
-  body: 'pizza',
-  amount: 12,
-  createdAt: 43
-});
+// //     snapshot.forEach((childSnapshot) => {
+// //       expenses.push({
+// //         id: childSnapshot.key,
+// //         ...childSnapshot.val()
+// //       });
+// //     });
+// //     console.log('expenses: ', expenses);
+// //   }, (e) => {
+// //     console.log('Error with data fetching: ', e);
+// //   }
+// // );
+
+// database.ref('expenses').push({
+//   title: 'food',
+//   body: 'pizza',
+//   amount: 12,
+//   createdAt: 43
+// });
 
 // database.ref('notes').push({
 //   title: 'Course Topics',
@@ -82,7 +85,6 @@ database.ref('expenses').push({
 //   database.ref('expenses').push(item);
 // });
 
-
 // READ database
 // database.ref('expenses')
 //   .once('value')
@@ -99,9 +101,6 @@ database.ref('expenses').push({
 //     console.log(expenses);
 
 //   });
-
-
-
 
 // database.ref('notes/-L90k9qd3DqDZNm_pUEb').remove();
 
