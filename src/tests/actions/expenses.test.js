@@ -13,7 +13,7 @@ import {
 import expenses from '../fixtures/expenses';
 import database from '../../firebase/firebase';
 
-const uid = 'thisismytestuid';
+const uid = 'thisismytestuid'; // create variable for user id in testing
 const defaultAuthState = { auth: { uid } };
 const createMockStore = configureMockStore([thunk]);
 
