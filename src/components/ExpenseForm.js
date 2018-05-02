@@ -2,9 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import { SingleDatePicker } from 'react-dates';
 
-const now = moment();
-
-class ExpenseForm extends React.Component {
+export default class ExpenseForm extends React.Component {
   constructor(props) {
     super(props);
 
@@ -12,45 +10,34 @@ class ExpenseForm extends React.Component {
       description: props.expense ? props.expense.description : '',
       note: props.expense ? props.expense.note : '',
       amount: props.expense ? (props.expense.amount / 100).toString() : '',
-      createdAt: props.expense ? moment(props.expense.createdAd) : moment(),
+      createdAt: props.expense ? moment(props.expense.createdAt) : moment(),
       calendarFocused: false,
       error: ''
     };
   }
-
   onDescriptionChange = e => {
     const description = e.target.value;
-    this.setState(() => ({
-      description // same as description: description
-    }));
+    this.setState(() => ({ description }));
   };
-
   onNoteChange = e => {
-    const note = e.target.value; // create variable to access target
-    // which we couldn't do (I think because it's async nature)
-    // e.persist() would work, then we could do ({ note: e.target.value})
-    this.setState(() => ({
-      note
-    }));
+    const note = e.target.value;
+    this.setState(() => ({ note }));
   };
-
   onAmountChange = e => {
     const amount = e.target.value;
+
     if (!amount || amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
       this.setState(() => ({ amount }));
     }
   };
-
   onDateChange = createdAt => {
     if (createdAt) {
       this.setState(() => ({ createdAt }));
     }
   };
-
   onFocusChange = ({ focused }) => {
     this.setState(() => ({ calendarFocused: focused }));
   };
-
   onSubmit = e => {
     e.preventDefault();
 
@@ -68,7 +55,6 @@ class ExpenseForm extends React.Component {
       });
     }
   };
-
   render() {
     return (
       <div>
@@ -96,7 +82,7 @@ class ExpenseForm extends React.Component {
             isOutsideRange={() => false}
           />
           <textarea
-            placeholder="Add a note for your expense (optional)."
+            placeholder="Add a note for your expense (optional)"
             value={this.state.note}
             onChange={this.onNoteChange}
           />
@@ -106,5 +92,3 @@ class ExpenseForm extends React.Component {
     );
   }
 }
-
-export default ExpenseForm;

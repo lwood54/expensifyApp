@@ -12,7 +12,7 @@ exports[`should render expense list item with provided props 1`] = `
   </Link>
   <p>
     $1,095.00
-    :
+    -
     December 27th, 1969
   </p>
 </div>
